@@ -1,0 +1,86 @@
+{
+	"name": "Aisatsu",
+	"version": "1.0.0",
+	"author": [
+		"Aikoyori"
+	],
+	"url": "https://www.mediawiki.org/wiki/Skin:Example",
+	"descriptionmsg": "挨拶と愛殺",
+	"namemsg": "Aisatsu",
+	"license-name": "GPLv3",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.41.0"
+	},
+	"ValidSkinNames": {
+		"aisatsu": {
+			"class": "SkinMustache",
+			"args": [
+				{
+					"name": "aisatsu",
+					"supportsMwHeading": true,
+					"responsive": true,
+					"messages": [
+						"aisatsu-no-categories",
+						"sitetitle",
+						"search",
+						"otherlanguages",
+						"tagline",
+						"navigation-heading"
+					],
+					"styles": [
+						"mediawiki.ui.icon",
+						"mediawiki.ui.button",
+						"skins.aisatsu.styles"
+					],
+					"scripts": [
+						"skins.aisatsu"
+					]
+				}
+			]
+		}
+	},
+	"MessagesDirs": {
+		"aisatsu": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.aisatsu.styles": {
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content-tables": true,
+				"content-links": false,
+				"content-media": false,
+				"content-links-external": false,
+				"interface-message-box": true,
+				"interface-category": false,
+				"toc": true
+			},
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"styles": [
+				"dist/tailwind.css",
+				"resources/skin.css"
+			]
+		},
+		"skins.aisatsu": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"packageFiles": [
+				"resources/skin.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Aisatsu"
+	},
+	"manifest_version": 2
+}

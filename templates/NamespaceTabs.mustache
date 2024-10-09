@@ -1,0 +1,7 @@
+<div role="navigation" id="{{id}}" class="{{class}}" title="{{html-tooltip}}"
+    aria-labelledby="{{id}}-label">
+    <h3 id="{{id}}-label" class="hidden" {{{html-user-language-attributes}}}>{{label}}</h3>
+
+	{{#array-items}}{{>Tab}}{{/array-items}}
+	{{{html-after-portal}}}
+</div>

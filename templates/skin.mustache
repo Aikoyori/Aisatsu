@@ -1,0 +1,110 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
+
+<div class="mw-dimmer" id="mw-dimmer">
+
+</div>
+<div id="mw-wrapper">
+	<div id="mw-sidebar">
+
+		{{#data-portlets}}
+		<div id="user-tools">
+			{{#data-notifications}}{{>Portlet}}{{/data-notifications}}
+			{{#data-user-interface-preferences}}{{>Portlet}}{{/data-user-interface-preferences}}
+			{{#data-user-menu}}{{>Portlet}}{{/data-user-menu}}
+		</div>
+		<div id="page-tools">
+			{{#data-variants}}{{>Portlet}}{{/data-variants}}
+			{{#data-views}}{{>Portlet}}{{/data-views}}
+			{{#data-actions}}{{>Portlet}}{{/data-actions}}
+		</div>
+		{{/data-portlets}}
+		<div id="site-navigation">
+			{{#data-portlets-sidebar.data-portlets-first}}{{>Portlet}}{{/data-portlets-sidebar.data-portlets-first}}
+			{{#data-portlets-sidebar.array-portlets-rest}}{{>Portlet}}{{/data-portlets-sidebar.array-portlets-rest}}
+			{{#data-portlets.data-languages}}{{>Portlet}}{{/data-portlets.data-languages}}
+		</div>
+	</div>
+	<div id="mw-main">
+
+	<div id="mw-navigation">
+		<!-- Menu button -->
+		<h2>{{msg-navigation-heading}}</h2>
+		<div id="p-logo" class="mw-portlet" role="banner">
+			<a href="{{link-mainpage}}">
+			{{#data-logos}}
+				{{#icon}}<img src="{{.}}" width="40" height="40">{{/icon}}
+				{{#wordmark}}<img src="{{src}}" width="{{width}}" height="{{height}}">{{/wordmark}}
+				{{^wordmark}}<h1>{{msg-sitetitle}}</h1>{{/wordmark}}
+			{{/data-logos}}
+			</a>
+		</div>
+		<form action="{{form-action}}" role="search" class="mw-portlet" id="p-search">
+
+
+		{{#data-search-box}}
+			<input type="hidden" name="title" value="{{page-title}}">
+			<label for="searchInput">{{msg-search}}</label>
+			{{{html-input}}}
+			{{{html-button-search}}}
+		{{/data-search-box}}
+		</form>
+
+		<!--
+		{{#data-portlets}}
+			{{#data-user-page}}{{>Portlet}}{{/data-user-page}}
+		{{/data-portlets}}
+		-->
+	</div>
+	<div id="mw-page-context">
+		<h1>
+			{{{html-title}}}
+		</h1>
+					<button id="mw-menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+</svg>
+</button>
+	</div>
+	<div class="mw-body-with-tab">
+		<div class="mw-namespace-tabs">
+
+		{{#data-portlets}}
+			{{#data-namespaces}}{{>NamespaceTabs}}{{/data-namespaces}}
+		{{/data-portlets}}
+		</div>
+
+		<div class="mw-body" id="content" role="main">
+			<div id="siteNotice">{{{html-site-notice}}}</div>
+			{{{html-user-message}}}
+			<div class="mw-indicators mw-body-content">
+			{{#array-indicators}}
+			<div id="{{id}}" class="{{class}}">{{{html}}}</div>
+			{{/array-indicators}}
+			</div>
+			{{{html-title-heading}}}
+			<div id="siteSub">{{msg-tagline}}</div>
+			<div class="mw-body-content">
+				<div id="contentSub">
+					{{{html-subtitle}}}
+					{{{html-undelete-link}}}
+				</div>
+				{{{html-body-content}}}
+				<!-- todo: replace with .mixin-clearfix -->
+				<div class="visualClear"></div>
+				{{#data-portlets}}
+				{{>CategoryPortlet}}
+				{{/data-portlets}}
+			</div>
+			{{{html-after-content}}}
+		</div>
+	</div>
+
+
+	<div id="mw-footer">
+	{{#data-footer}}{{>Footer}}{{/data-footer}}
+	</div>
+	</div>
+</div>
+
