@@ -1,7 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
 
 <div class="mw-dimmer" id="mw-dimmer">
 
@@ -11,13 +11,11 @@
 
 		{{#data-portlets}}
 		<div id="user-tools">
-			{{#data-notifications}}{{>Portlet}}{{/data-notifications}}
 			{{#data-user-interface-preferences}}{{>Portlet}}{{/data-user-interface-preferences}}
 			{{#data-user-menu}}{{>Portlet}}{{/data-user-menu}}
 		</div>
 		<div id="page-tools">
 			{{#data-variants}}{{>Portlet}}{{/data-variants}}
-			{{#data-views}}{{>Portlet}}{{/data-views}}
 			{{#data-actions}}{{>Portlet}}{{/data-actions}}
 		</div>
 		{{/data-portlets}}
@@ -48,9 +46,14 @@
 			<input type="hidden" name="title" value="{{page-title}}">
 			<label for="searchInput">{{msg-search}}</label>
 			{{{html-input}}}
-			{{{html-button-search}}}
+			<!--{{{html-button-search}}}-->
+			<input class="material-symbols-outlined" type="submit" name="go" value="" title="Go to a page with this exact name if it exists" class="searchButton" id="searchButton">
 		</form>
 		{{/data-search-box}}
+		{{#data-portlets}}
+
+			{{#data-notifications}}{{>NotificationArea}}{{/data-notifications}}
+		{{/data-portlets}}
 
 		<!--
 		{{#data-portlets}}
@@ -62,29 +65,40 @@
 		<h1>
 			{{{html-title}}}
 		</h1>
+			<div id="siteSub">{{msg-tagline}}</div>
 					<button id="mw-menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 </svg>
 </button>
 	</div>
 	<div class="mw-body-with-tab">
-		<div class="mw-namespace-tabs">
+	<div>
+	</div>
+		<div class="mw-document-tabs flex w-full">
 
-		{{#data-portlets}}
-			{{#data-namespaces}}{{>NamespaceTabs}}{{/data-namespaces}}
-		{{/data-portlets}}
+			<div class="mw-namespace-tabs">
+
+				{{#data-portlets}}
+					{{#data-namespaces}}{{>TabBundle}}{{/data-namespaces}}
+				{{/data-portlets}}
+			</div>
+			<div class="mw-indicators mw-body-content flex gap-4 relative" id="mw-indicators">
+				{{#array-indicators}}
+				<div id="{{id}}" class="{{class}}">{{{html}}}</div>
+				{{/array-indicators}}
+			</div>
+			<div class="mw-views-tabs self-end justify-self-en justify-items-stretch place-self-end flex-grow ml-auto flex justify-end">
+
+				{{#data-portlets}}
+					{{#data-views}}{{>TabBundle}}{{/data-views}}
+				{{/data-portlets}}
+			</div>
 		</div>
 
 		<div class="mw-body" id="content" role="main">
 			<div id="siteNotice">{{{html-site-notice}}}</div>
 			{{{html-user-message}}}
-			<div class="mw-indicators mw-body-content">
-			{{#array-indicators}}
-			<div id="{{id}}" class="{{class}}">{{{html}}}</div>
-			{{/array-indicators}}
-			</div>
-			{{{html-title-heading}}}
-			<div id="siteSub">{{msg-tagline}}</div>
+
 			<div class="mw-body-content">
 				<div id="contentSub">
 					{{{html-subtitle}}}

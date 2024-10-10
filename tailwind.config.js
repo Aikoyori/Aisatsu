@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./templates/**/*.mustache", "./resources/**/*.css"],
+  content: ["./templates/**/*.mustache","./resources/**/*.css"],
   safelist: ['font-mono'],
   theme: {
     extend: {
