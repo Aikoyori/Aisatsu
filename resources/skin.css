@@ -194,3 +194,7 @@ ui {
   ol {
 	@apply list-decimal mt-2 ml-6;
   }
+dd
+{
+	@apply ml-6 mb-1;
+}

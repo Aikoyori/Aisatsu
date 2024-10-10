@@ -606,6 +606,10 @@ video {
   margin-left: 0.25rem;
 }
 
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1273,6 +1277,11 @@ ol {
   margin-top: 0.5rem;
   margin-left: 1.5rem;
   list-style-type: decimal;
+}
+
+dd {
+  margin-left: 1.5rem;
+  margin-bottom: 0.25rem;
 }
 
 @media (min-width: 1024px) {
