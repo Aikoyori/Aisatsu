@@ -10,6 +10,11 @@
 	<div id="mw-sidebar">
 
 		{{#data-portlets}}
+		<div class="lg:hidden">
+			{{#data-notifications}}{{>NotificationArea}}{{/data-notifications}}
+		</div>
+		{{/data-portlets}}
+		{{#data-portlets}}
 		<div id="user-tools">
 			{{#data-user-interface-preferences}}{{>Portlet}}{{/data-user-interface-preferences}}
 			{{#data-user-menu}}{{>Portlet}}{{/data-user-menu}}
@@ -50,10 +55,12 @@
 			<input class="material-symbols-outlined" type="submit" name="go" value="" title="Go to a page with this exact name if it exists" class="searchButton" id="searchButton">
 		</form>
 		{{/data-search-box}}
+		<div class="hidden lg:block h-full relative bg-aiko-background-25 rounded-2xl p-4">
 		{{#data-portlets}}
 
 			{{#data-notifications}}{{>NotificationArea}}{{/data-notifications}}
 		{{/data-portlets}}
+		</div>
 
 		<!--
 		{{#data-portlets}}
@@ -61,20 +68,28 @@
 		{{/data-portlets}}
 		-->
 	</div>
-	<div id="mw-page-context">
+	<div id="mw-page-context" class="flex">
+	<div class="w-auto flex-grow">
 		<h1>
 			{{{html-title}}}
 		</h1>
 			<div id="siteSub">{{msg-tagline}}</div>
-					<button id="mw-menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-</svg>
+
+			<div class="mw-indicators mw-body-content flex gap-4 relative mt-2" id="mw-indicators">
+				{{#array-indicators}}
+				<div id="{{id}}" class="{{class}}">{{{html}}}</div>
+				{{/array-indicators}}
+			</div>
+	</div>
+		<button id="mw-menu-toggle" class="flex-grow-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+			</svg>
 </button>
 	</div>
 	<div class="mw-body-with-tab">
 	<div>
 	</div>
-		<div class="mw-document-tabs flex w-full">
+		<div class="mw-document-tabs">
 
 			<div class="mw-namespace-tabs">
 
@@ -82,15 +97,10 @@
 					{{#data-namespaces}}{{>TabBundle}}{{/data-namespaces}}
 				{{/data-portlets}}
 			</div>
-			<div class="mw-indicators mw-body-content flex gap-4 relative" id="mw-indicators">
-				{{#array-indicators}}
-				<div id="{{id}}" class="{{class}}">{{{html}}}</div>
-				{{/array-indicators}}
-			</div>
 			<div class="mw-views-tabs self-end justify-self-en justify-items-stretch place-self-end flex-grow ml-auto flex justify-end">
 
 				{{#data-portlets}}
-					{{#data-views}}{{>TabBundle}}{{/data-views}}
+					{{#data-views}}{{>TabBundleHorizontalOnMobile}}{{/data-views}}
 				{{/data-portlets}}
 			</div>
 		</div>

@@ -16,5 +16,10 @@ cacophony = function() {
 		$('#mw-dimmer').toggleClass('open');
 	});
 }
+// reset menu on resize
+$(window).resize(function() {
+	$('#mw-sidebar').removeClass('open');
+	$('#mw-dimmer').removeClass('open');
+});
 
 cacophony();
