@@ -41,16 +41,16 @@
 			{{/data-logos}}
 			</a>
 		</div>
+		{{#data-search-box}}
 		<form action="{{form-action}}" role="search" class="mw-portlet" id="p-search">
 
 
-		{{#data-search-box}}
 			<input type="hidden" name="title" value="{{page-title}}">
 			<label for="searchInput">{{msg-search}}</label>
 			{{{html-input}}}
 			{{{html-button-search}}}
-		{{/data-search-box}}
 		</form>
+		{{/data-search-box}}
 
 		<!--
 		{{#data-portlets}}

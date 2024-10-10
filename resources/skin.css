@@ -36,7 +36,7 @@ html
 }
 #mw-sidebar
 {
-	@apply w-64 top-0 left-0 lg:top-auto lg:left-auto flex-shrink-0 h-auto box-border overflow-auto absolute lg:relative transition-transform duration-300 z-40 -translate-x-80 lg:translate-x-0;
+	@apply w-64 top-0 left-0 lg:top-auto lg:left-auto flex-shrink-0 h-dvh lg:h-auto box-border overflow-auto absolute lg:relative transition-transform duration-300 z-40 -translate-x-80 lg:translate-x-0;
 }
 
 #mw-sidebar.open
@@ -187,3 +187,10 @@ html
 {
 
 }
+ui {
+	@apply list-none mt-2 ml-6;
+  }
+
+  ol {
+	@apply list-decimal mt-2 ml-6;
+  }
