@@ -117,11 +117,11 @@ a:visited
 	@apply flex mx-4 flex-col lg:flex-row;
 }
 .mw-tabs-mobile-horizontal{
-	@apply flex mx-4 flex-row;
+	@apply lg:flex mx-4 lg:flex-row grid grid-cols-2 gap-2 lg:gap-0;
 }
 
 .mw-ns-tab-horizontal{
-	@apply bg-aiko-background-50 text-aiko-text-900 border-none rounded-t-lg px-4 py-2 translate-y-2 relative;
+	@apply bg-aiko-background-50 text-aiko-text-900 border-none rounded-lg lg:rounded-b-none px-4 py-2 lg:translate-y-2 relative;
 }
 .mw-ns-tab-horizontal.mw-list-item.selected{
 	@apply bg-aiko-primary-700 text-aiko-text-25 font-black translate-y-0;
